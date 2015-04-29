@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  cuisine_id: 1
+  date: 2015-04-21 20:06:20
+  is_evening: false
+
+two:
+  user_id: 1
+  cuisine_id: 1
+  date: 2015-04-21 20:06:20
+  is_evening: false
