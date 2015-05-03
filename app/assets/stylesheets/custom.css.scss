@@ -1,6 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* header */
+
+h1 {
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
 /* footer */
 
 footer {

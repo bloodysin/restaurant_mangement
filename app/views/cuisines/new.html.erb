@@ -1,2 +1,20 @@
-<h1>Cuisines#new</h1>
-<p>Find me in app/views/cuisines/new.html.erb</p>
+<h1>添加菜色</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@cuisine) do |f| %>
+      <%= render 'shared/cuisine_error_messages' %>
+
+      <label class="control-label">菜色名称</label>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <label class="control-label">食材</label>
+      <label class="control-label">食材名与分量见用空格分隔，食材见用逗号分隔，分量单位为克。</label>
+      <label class="control-label">例：“番茄 500,鸡蛋 100”</label>
+      <%= f.text_field :ingredients, class: 'form-control' %>
+
+      <%= f.submit "添加", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
