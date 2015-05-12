@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CuisinesHelper
   include IngredientsHelper
+  include ProvidedHelper
 end

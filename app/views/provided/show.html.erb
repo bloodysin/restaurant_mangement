@@ -12,12 +12,12 @@
   <div class="col-md-4">
     <h5>已选菜色</h3>
     <%= form_tag do %>
-    <%= select_tag 'provided[list][]', options_from_collection_for_select(@cuisines_today, 'id', 'name'), :multiple => true, class: 'form-control' %> 
+      <%= select_tag 'provided[list][]', options_from_collection_for_select(@cuisines_today, 'id', 'name'), :multiple => true, class: 'form-control' %> 
+      <%= submit_tag "保存", class: "btn btn-primary center-block button" %>
+    <% end %>
   </div>
 </div>
 
-<%= submit_tag "保存", class: "btn btn-primary center-block button" %>
-<% end %>
 
 <script type="text/javascript">
 var rightBtn = document.getElementById('pullRight');

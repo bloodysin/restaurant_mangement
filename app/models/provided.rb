@@ -3,7 +3,6 @@ class Provided < ActiveRecord::Base
 
   validates :cuisine_id, presence: true
   validates :week, presence: true
-  validates :is_evening, presence: true
 
   belongs_to :cuisine 
 end

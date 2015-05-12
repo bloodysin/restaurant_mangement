@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512122510) do
+ActiveRecord::Schema.define(version: 20150512154528) do
 
   create_table "cuisines", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "ingredients", limit: 16777215
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "count",       limit: 4
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -39,10 +40,10 @@ ActiveRecord::Schema.define(version: 20150512122510) do
   create_table "user_cuisines", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "cuisine_id", limit: 4
-    t.datetime "date"
     t.boolean  "is_evening", limit: 1
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "week",       limit: 4
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,8 +1,5 @@
-class ProvidedController < ApplicationController
+class ChooseController < ApplicationController
   def show
-    @cuisines = Cuisine.all
-    @newcuisine = []
-
     @cuisines_today = []
     cuisine_ids_today(params[:week], params[:is_evening]).each do |p|
       @cuisines_today.push(Cuisine.find(p.cuisine_id))
@@ -10,28 +7,30 @@ class ProvidedController < ApplicationController
   end
 
   def update
-    list = provided_params["list"]
-    provided_clear
+    list = chosen_params["list"]
+    chosen_clear
     list.each do |id|
-        p = Provided.new
+        p = UserCuisine.new
         p.week = params[:week].to_i
         p.is_evening = params[:is_evening]
         p.cuisine_id = id.to_i
+        p.user_id = params[:id]
         p.save!
     end
 
-    render 'users/show'
+    redirect_to :back
   end
-
+  
   private
   
-  def provided_params
-    params.require(:provided).permit(:week, :is_evening, :list => [])
+  def chosen_params
+    params.require(:chosen).permit(:list => [])
   end
 
-  def provided_clear
-    Provided.where(week: params[:week].to_i, is_evening: params[:is_evening]).each do |p|
+  def chosen_clear
+    UserCuisine.where(user_id: params[:id], week: params[:week].to_i, is_evening: params[:is_evening]).each do |p|
       p.destroy
     end
   end
+
 end

@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    if current_user.role == "Student"
+      student_helper
+    end
   end
 
   def edit

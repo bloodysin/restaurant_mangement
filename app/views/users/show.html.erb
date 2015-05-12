@@ -1,4 +1,6 @@
 
-<%= link_to '添加菜色', new_cuisine_path %>
-
-<%= render 'users/restaurant' %>
+<% if current_user.role == "Restaurant" %>
+  <%= render 'users/restaurant' %>
+<% else %>
+  <%= render 'users/student' %>
+<% end %>

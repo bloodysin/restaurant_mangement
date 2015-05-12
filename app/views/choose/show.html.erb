@@ -1,0 +1,4 @@
+<%= form_tag do %>
+  <%= select_tag 'chosen[list][]', options_from_collection_for_select(@cuisines_today, 'id', 'name'), :multiple => true, class: 'form-control select' %> 
+  <%= submit_tag "选择", class: "btn btn-primary center-block button" %>
+<% end %>

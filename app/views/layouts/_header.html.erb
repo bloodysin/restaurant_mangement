@@ -15,6 +15,9 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "公告通知", current_user %></li>
         <li><a href="#">餐厅评价</a></li>
+        <% if logged_in? && current_user.role == "Restaurant" %>
+          <li><%= link_to "统计", statistics_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

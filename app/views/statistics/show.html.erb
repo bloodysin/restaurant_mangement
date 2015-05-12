@@ -1,0 +1,7 @@
+<ul class="chosen">
+ <% @cuisines.each do |cui| %>
+    <li>
+    <%= cui.name %> : <%= cui.count %>
+    </li>
+  <% end %>
+</ul>
