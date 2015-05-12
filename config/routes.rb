@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :users
   resources :cuisines
+  get 'menu/:week/:is_evening' => 'provided#show', as: 'menu'
+  post 'menu/:week/:is_evening' => 'provided#update', as: 'cuisine_cuisine' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

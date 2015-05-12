@@ -4,19 +4,35 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>星期一</th>
-      <th>星期二</th>
-      <th>星期三</th>
-      <th>星期四</th>
-      <th>星期五</th>
+      <th>中</th>
+      <th>晚</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>中</th>
+      <th>星期一</th>
+      <td><%= link_to 'add', menu_path(:week => '1', :is_evening => '0') %></td>
+      <td><%= link_to 'add', menu_path(:week => '1', :is_evening => '1') %></td>
     </tr>
     <tr>
-      <th>晚</th>
+      <th>星期二</th>
+      <td><%= link_to 'add', menu_path(:week => '2', :is_evening => '0') %></td>
+      <td><%= link_to 'add', menu_path(:week => '2', :is_evening => '1') %></td>
+    </tr>
+    <tr>
+      <th>星期三</th>
+      <td><%= link_to 'add', menu_path(:week => '3', :is_evening => '0') %></td>
+      <td><%= link_to 'add', menu_path(:week => '3', :is_evening => '1') %></td>
+    </tr>
+    <tr>
+      <th>星期四</th>
+      <td><%= link_to 'add', menu_path(:week => '4', :is_evening => '0') %></td>
+      <td><%= link_to 'add', menu_path(:week => '4', :is_evening => '1') %></td>
+    </tr>
+      <th>星期五</th>
+      <td><%= link_to 'add', menu_path(:week => '5', :is_evening => '0') %></td>
+      <td><%= link_to 'add', menu_path(:week => '5', :is_evening => '1') %></td>
+    <tr>
     </tr>
   </tbody>
 </table>

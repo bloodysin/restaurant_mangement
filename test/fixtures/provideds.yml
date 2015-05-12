@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cuisine_id: 
+  week: 
+  is_evening: false
+
+two:
+  cuisine_id: 
+  week: 
+  is_evening: false

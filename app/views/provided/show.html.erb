@@ -1,0 +1,70 @@
+<div class="row center-block" style="margin-left: 20%">
+  <div class="col-md-4">
+    <h5>菜色列表</h3>
+    <%= select_tag 'cuisine', options_from_collection_for_select(@cuisines, 'id', 'name'), :multiple => true, class: 'form-control' %> 
+  </div>
+
+  <div class="col-md-1" style="margin-top: 50px">
+    <button type="button" id="pullRight" class="btn btn-primary btn-block">>></button>
+    <button type="button" id="pullLeft" class="btn btn-default btn-block"><<</button>
+  </div>
+ 
+  <div class="col-md-4">
+    <h5>已选菜色</h3>
+    <%= form_tag do %>
+    <%= select_tag 'provided[list][]', options_from_collection_for_select(@cuisines_today, 'id', 'name'), :multiple => true, class: 'form-control' %> 
+  </div>
+</div>
+
+<%= submit_tag "保存", class: "btn btn-primary center-block button" %>
+<% end %>
+
+<script type="text/javascript">
+var rightBtn = document.getElementById('pullRight');
+var leftBtn = document.getElementById('pullLeft');
+var cuisine = document.getElementById('cuisine');
+var cuisineToday = document.getElementById('provided_list_');
+var list = cuisine.options
+var listToday = cuisineToday.options
+rightBtn.addEventListener('click', function() {
+    var addList = [];
+    for(var i = 0; i < list.length; i++) {
+      if(list[i].selected) {
+        addList.push(list[i]);
+      }
+    }
+
+    for(var i = 0; i < addList.length; i++) {
+      if(!isExist(listToday, addList[i].value)) {
+        listToday.add(addList[i]);
+      }
+    }
+    });
+
+leftBtn.addEventListener('click', function() {
+    var addList = [];
+    for(var i = 0; i < listToday.length; i++) {
+      if(listToday[i].selected) {
+        addList.push(listToday[i]);
+        listToday.remove(i);
+      }
+    }
+
+    for(var i = 0; i < addList.length; i++) {
+      if(!isExist(list, addList[i].value)) {
+        list.add(addList[i]);
+      }
+    }
+    });
+
+var isExist = function(list, value) {
+  for(var i = 0; i < list.length; i++)
+  {
+      if(list[i].value == value) {
+          return true;
+      }
+  }
+
+  return false;
+};
+</script>
